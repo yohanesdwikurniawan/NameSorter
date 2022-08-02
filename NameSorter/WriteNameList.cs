@@ -10,26 +10,22 @@ namespace NameSorter
     {
         public bool WriteSortedNameList(IEnumerable<string> sortedNameList)
         {
-            try
+            if (sortedNameList.Any())
             {
-                if (!sortedNameList.Any())
-                    return false;
-                else
+                //set path for save the list of names
+                var destinationPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Destination\", "sorted-names-list.txt");
+
+                //write the sorted list of names to text file
+                File.WriteAllLines(destinationPath, sortedNameList);
+
+                if (File.Exists(destinationPath))
                 {
-                    //set path for save the list of names
-                    var destinationPath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Destination\", "sorted-names-list.txt");
-
-                    //write the sorted list of names to text file
-                    File.WriteAllLines(destinationPath, sortedNameList);
-
+                    //write all list of names into list
                     return true;
                 }
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+
+            return false;
         }
     }
 }

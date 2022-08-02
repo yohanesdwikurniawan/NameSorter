@@ -8,37 +8,17 @@ namespace NameSorter
 {
     public class ReadNameList
     {
-        public List<string> ReadNameListFromFile()
+        public string[] ReadNameListFromFile(string filename)
         {
-            try
+            //set path for get the list of names
+            var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Source\", $"{filename}.txt");
+            if (File.Exists(sourcePath))
             {
-                //set path for get the list of names
-                var sourcePath = Path.Combine(Directory.GetCurrentDirectory(), @"..\..\..\..\Source\", "unsorted-names-list.txt");
-                if(File.Exists(sourcePath))
-                {
-                    //read all list of names into list
-                    List<string> unsortedNameList = new List<string>(File.ReadAllLines(sourcePath, Encoding.UTF8));
-
-                    if (!unsortedNameList.Any())
-                    {
-                        return new List<string>();
-                    }
-                    else
-                    {
-                        return unsortedNameList;
-                    }
-                }
-                else
-                {
-                    return new List<string>();
-                }
-                
+                //read all list of names into list
+                return File.ReadAllLines(sourcePath, Encoding.UTF8);
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                throw;
-            }
+            
+            return new string[0];
         }
     }
 }
