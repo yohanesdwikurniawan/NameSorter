@@ -8,6 +8,11 @@ namespace NameSorter
 {
     public class ReadNameList
     {
+        /// <summary>
+        /// Read text file and insert all the content to array of string
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns> array of string contains names </returns>
         public string[] ReadNameListFromFile(string filename)
         {
             //set path for get the list of names

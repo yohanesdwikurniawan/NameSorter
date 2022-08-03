@@ -8,6 +8,11 @@ namespace NameSorter
 {
     public class SortNameList
     {
+        /// <summary>
+        /// Sort name list by their last name
+        /// </summary>
+        /// <param name="unsortedNameList"></param>
+        /// <returns> sorted array of names </returns>
         public IEnumerable<string> SortNameListByLastName(string[] unsortedNameList)
         {
             if (!unsortedNameList.Any())

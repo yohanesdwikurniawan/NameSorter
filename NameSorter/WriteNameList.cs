@@ -8,6 +8,11 @@ namespace NameSorter
 {
     public class WriteNameList
     {
+        /// <summary>
+        /// Write sorted name list into text file
+        /// </summary>
+        /// <param name="sortedNameList"></param>
+        /// <returns>boolean</returns>
         public bool WriteSortedNameList(IEnumerable<string> sortedNameList)
         {
             if (sortedNameList.Any())
